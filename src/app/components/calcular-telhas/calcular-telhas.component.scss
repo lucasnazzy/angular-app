@@ -25,6 +25,10 @@ input[type="number"] {
     font-size: 19px;
   }
 }
+.input-title {
+  font-weight: 600;
+  font-size: 19px;
+}
 .button-disabled {
   background-color: #dddddd;
   width: 150px;
@@ -40,7 +44,11 @@ input[type="number"] {
 }
 .telha-result {
   font-weight: bold;
-  color: green;
+  background: gray;
+  color: white;
+  padding: 10px 90px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .input-style {
@@ -63,4 +71,62 @@ input[type="number"] {
 }
 .set-size {
   font-size: 18px;
+}
+
+.metros-quadrados {
+  font-weight: bold;
+  background: #71aa81;
+  color: white;
+  padding: 10px 0px;
+  border-radius: 5px;
+  max-width: 300px;
+  display: flex;
+  margin-top: 10px;
+  width: 170px;
+  align-items: center;
+  max-height: 50px;
+  justify-content: center;
+  font-size: 22px;
+  min-height: 50px;
+}
+
+.box2 {
+  min-width: 450px;
+  margin-left: auto;
+}
+
+@media (max-width: 1200px) {
+  .box2 {
+    margin-left: 0px;
+  }
+}
+
+.dropdown-box {
+  border: 2px solid #71aa81 !important;
+  background: white !important;
+  color: #71aa81 !important;
+  min-width: 230px !important;
+}
+
+@media (max-width: 600px) {
+  .input-box {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .metros-quadrados {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .dropdown-box {
+    width: 100%;
+  }
+  .button-send {
+    width: 100%;
+  }
+
+  .box2 {
+    width: 100%;
+    min-width: 100%;
+  }
 }

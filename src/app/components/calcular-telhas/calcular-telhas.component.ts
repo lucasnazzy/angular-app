@@ -14,10 +14,14 @@ export class CalcularTelhasComponent implements OnInit {
   areaTotal: number = 0;
   totalTelhas: number = 0;
   totalTelhaDesperdicio: number = 0;
+  listaCaida: any[] = [];
+  valorCaida: any;
+  selectedItem: any;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.carregarItemsCaida();
     this.telhasForm();
   }
   calcularTelhas() {
@@ -28,14 +32,18 @@ export class CalcularTelhasComponent implements OnInit {
     this.telhaResult = Math.ceil(blocosResult);
   }
   calcularAreaTotal() {
-    let caidaTelha = 1.5;
-    let totalArea = caidaTelha * this.telhaResult;
+    console.log(this.valorCaida);
+
+    let totalArea = this.valorCaida * this.telhaResult;
 
     this.areaTotal = Math.ceil(totalArea);
   }
   calcularTotalTelhas() {
-    let telhaPortuguesa = 17;
-    let totalDeTelhas = this.areaTotal * telhaPortuguesa;
+    let accountValue: blocosObject = this.formTelhas?.getRawValue();
+
+    let metrosTelha = accountValue.numeroTelhas;
+
+    let totalDeTelhas = this.areaTotal * metrosTelha;
 
     this.totalTelhas = Math.ceil(totalDeTelhas);
   }
@@ -50,6 +58,7 @@ export class CalcularTelhasComponent implements OnInit {
     this.formTelhas = this.fb.group({
       largura: ['', Validators.compose([Validators.required])],
       comprimento: ['', Validators.compose([Validators.required])],
+      numeroTelhas: [''],
     });
   }
 
@@ -60,9 +69,53 @@ export class CalcularTelhasComponent implements OnInit {
   get comprimento() {
     return this.formTelhas?.get('comprimento');
   }
+
+  carregarItemsCaida() {
+    this.listaCaida = [
+      {
+        value: 1.2,
+        name: '1.20',
+      },
+      {
+        value: 1.5,
+        name: '1.50',
+      },
+      {
+        value: 1.8,
+        name: '1.80',
+      },
+      {
+        value: 2.1,
+        name: '2.10',
+      },
+      {
+        value: 2.56,
+        name: '2.56',
+      },
+      {
+        value: 3.24,
+        name: '3.24',
+      },
+      {
+        value: 3.8,
+        name: '3.80',
+      },
+      {
+        value: 4.4,
+        name: '4.40',
+      },
+    ];
+  }
+
+  selecionarCaida(item: any) {
+    this.valorCaida = item.value;
+
+    this.selectedItem = item.name;
+  }
 }
 
 export class blocosObject {
   largura: number = 0;
   comprimento: number = 0;
+  numeroTelhas: number = 0;
 }
