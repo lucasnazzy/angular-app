@@ -9,9 +9,7 @@
         </div>
 
         <div class="input-box pb-3">
-          <label class="input-title" for="nome"
-            >Digite a altura do bloco:
-          </label>
+          <label class="set-size" for="nome">Digite a altura do bloco: </label>
           <input
             class="input-style"
             type="number"
@@ -28,7 +26,7 @@
         </div>
 
         <div class="input-box pb-2">
-          <label class="input-title" for="email"
+          <label class="set-size" for="email"
             >Digite o comprimento do bloco:
           </label>
           <input
@@ -52,7 +50,7 @@
 
       <div class="div">
         <div class="d-flex flex-column" *ngIf="blocosUsados">
-          <h2>A quantidade de blocos usados será</h2>
+          <h2 class="set-size">A quantidade de blocos usados será</h2>
           <span class="result-box">
             {{ blocosUsados }}
           </span>
