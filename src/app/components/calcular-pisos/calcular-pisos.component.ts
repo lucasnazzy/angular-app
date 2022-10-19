@@ -53,6 +53,9 @@ export class CalcularPisosComponent implements OnInit {
   get quantidadePisoPorCaixa() {
     return this.formPisos?.get('quantidadePisoPorCaixa');
   }
+  get metrosDePisoCaixa() {
+    return this.formPisos?.get('metrosDePiso');
+  }
 
   rodapePorcentagem(rodape: boolean) {
     if (this.porcantagemRodape || !this.porcantagemRodape)

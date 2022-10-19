@@ -111,6 +111,12 @@ input[type="number"] {
   .button-send {
     width: 100%;
   }
+
+  .button-disabled {
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+  }
 }
 
 button:focus,
