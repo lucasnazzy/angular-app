@@ -20,20 +20,21 @@
     </div>
 
     <div class="mb-3 mt-3">
-      <h2 class="set-size">Ja calculou os 10% para os rodapés?</h2>
+      <h2 class="set-size">Deseja acrescentar os 10% para os rodapés?</h2>
 
       <div class="box-buttons">
         <button
-          class="btn btn-primary mr-3 confirm-button"
           [disabled]="metrosDePisoCaixa?.errors"
-          (click)="rodapePorcentagem((porcantagemRodape = true))"
+          class="btn btn-primary mr-3 confirm-button"
+          (click)="rodapePorcentagem((porcantagemRodape = false))"
         >
           Sim
         </button>
+
         <button
-          [disabled]="metrosDePisoCaixa?.errors"
           class="btn btn-danger negative-button"
-          (click)="rodapePorcentagem((porcantagemRodape = false))"
+          [disabled]="metrosDePisoCaixa?.errors"
+          (click)="rodapePorcentagem((porcantagemRodape = true))"
         >
           Não
         </button>
@@ -50,9 +51,7 @@
     </div>
 
     <div class="input-box pb-2" *ngIf="validationRodape">
-      <label class="set-size" for="email">
-        Digite a quantidade que vem em cada caixa de piso :
-      </label>
+      <label class="set-size" for="email"> m² por caixa : </label>
       <input
         class="input-style"
         type="number"

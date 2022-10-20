@@ -26,9 +26,7 @@ export class CalcularBlocosComponent implements OnInit {
 
     console.log(blocosResult);
 
-    let blocosFinais = blocosResult / 1000;
-
-    console.log(blocosFinais);
+    let blocosFinais = 1000 / blocosResult;
 
     this.blocosUsados = Math.ceil(blocosFinais);
   }
