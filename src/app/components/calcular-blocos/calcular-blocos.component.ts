@@ -60,16 +60,9 @@ export class CalcularBlocosComponent implements OnInit {
 
     let valorBlocos = metrosValue.metrosQuadrados * 10000;
 
-    console.log(valorBlocos);
-    console.log(blocosStats);
-
-    let metrosQuadradosUsados = valorBlocos * blocosStats;
-
-    console.log(metrosQuadradosUsados);
+    let metrosQuadradosUsados = valorBlocos / blocosStats;
 
     this.metrosQuadradosUsados = Math.floor(metrosQuadradosUsados);
-
-    console.log(this.metrosQuadradosUsados);
   }
 }
 
