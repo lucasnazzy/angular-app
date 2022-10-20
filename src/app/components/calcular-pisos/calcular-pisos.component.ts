@@ -32,8 +32,6 @@ export class CalcularPisosComponent implements OnInit {
       accountValue.metrosDePiso = accountValue.metrosDePiso + rodape;
     }
 
-    console.log(accountValue?.metrosDePiso);
-
     let pisoResult =
       accountValue?.metrosDePiso / accountValue?.quantidadePisoPorCaixa;
 

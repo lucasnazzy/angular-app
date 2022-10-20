@@ -32,8 +32,6 @@ export class CalcularTelhasComponent implements OnInit {
     this.telhaResult = Math.ceil(blocosResult);
   }
   calcularAreaTotal() {
-    console.log(this.valorCaida);
-
     let totalArea = this.valorCaida * this.telhaResult;
 
     this.areaTotal = Math.ceil(totalArea);

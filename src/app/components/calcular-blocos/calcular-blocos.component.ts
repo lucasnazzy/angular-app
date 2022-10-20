@@ -8,33 +8,36 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CalcularBlocosComponent implements OnInit {
   blocosUsados: number = 0;
-  totalUsadoNaObra: number = 0;
+  metrosQuadradosUsados: number = 0;
   public formBlocos: FormGroup | undefined;
+  public formMetrosQuadrados: FormGroup | undefined;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.blocosForm();
+    this.metrosQuadradosForm();
   }
 
   // calcular quantidade de blocos
   calcularBlocos() {
     let accountValue: blocosObject = this.formBlocos?.getRawValue();
 
-    console.log(accountValue);
-
     let blocosResult = accountValue.comprimento * accountValue.altura;
 
-    console.log(blocosResult);
+    let blocosFinais = 10000 / blocosResult;
 
-    let blocosFinais = 1000 / blocosResult;
-
-    this.blocosUsados = Math.ceil(blocosFinais);
+    this.blocosUsados = Math.floor(blocosFinais);
   }
 
   blocosForm() {
     this.formBlocos = this.fb.group({
       altura: ['', Validators.compose([Validators.required])],
       comprimento: ['', Validators.compose([Validators.required])],
+    });
+  }
+  metrosQuadradosForm() {
+    this.formMetrosQuadrados = this.fb.group({
+      metrosQuadrados: ['', Validators.compose([Validators.required])],
     });
   }
 
@@ -45,9 +48,35 @@ export class CalcularBlocosComponent implements OnInit {
   get comprimento() {
     return this.formBlocos?.get('comprimento');
   }
+  get metrosQuadrados() {
+    return this.formMetrosQuadrados?.get('metrosQuadrados');
+  }
+
+  calcularMetrosQuadrados() {
+    let blocosValue: blocosObject = this.formBlocos?.getRawValue();
+    let metrosValue: metrosObject = this.formMetrosQuadrados?.getRawValue();
+
+    let blocosStats = blocosValue.comprimento * blocosValue.altura;
+
+    let valorBlocos = metrosValue.metrosQuadrados * 10000;
+
+    console.log(valorBlocos);
+    console.log(blocosStats);
+
+    let metrosQuadradosUsados = valorBlocos * blocosStats;
+
+    console.log(metrosQuadradosUsados);
+
+    this.metrosQuadradosUsados = Math.floor(metrosQuadradosUsados);
+
+    console.log(this.metrosQuadradosUsados);
+  }
 }
 
 export class blocosObject {
   altura: number = 0;
   comprimento: number = 0;
+}
+export class metrosObject {
+  metrosQuadrados: number = 0;
 }
