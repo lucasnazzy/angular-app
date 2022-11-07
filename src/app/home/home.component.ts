@@ -50,4 +50,8 @@ export class HomeComponent implements OnInit {
     }
     this.selectedItem = this.teste.find((m) => m.id == id).name;
   }
+
+  reset() {
+    location.reload();
+  }
 }
